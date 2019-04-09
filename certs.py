@@ -14,7 +14,7 @@ def MakeCert(fname, lname, award, school):
     # dimensions for A4 at 300 dpi
     size = (3508, 2480)
     height, width = size
-    logo = Image.open("usydL.png")
+    logo = Image.open("logo.png")
     sig1 = Image.open("signature.jpg")
     # Image size measurement pre
     # mmWidth, mmHeight = mm1.size
@@ -46,7 +46,7 @@ def MakeCert(fname, lname, award, school):
     d.text((width * xPos, height * 0.62), "MadMaker Challenge 2018", font=font3, fill=(0))
     d.text((width * xPos, height * 0.7), "4th February 2019", font=font5, fill=(0))
     d.text((width * xPos, height * 0.875), "Associate Professor", font=fontS, fill=(0))
-    d.text((width * xPos, height * 0.89), "Abelardo Pardo", font=fontS, fill=(0))
+    d.text((width * xPos, height * 0.89), "First Last Name", font=fontS, fill=(0))
     d.text((width * xPos, height * 0.905), "Electrical & Information Engineering", font=fontS, fill=(0))
     os.chdir(r'C:\Users\mark\PycharmProjects\certs18\output' + '\\' + school)
     img.save(fname + lname + ".pdf")
@@ -76,14 +76,14 @@ dir = r'C:\Users\mark\PycharmProjects\certs18'
 os.chdir(dir)
 
 
-with open('grades.csv', 'rb') as csvfile:
+with open('grades.csv', 'rb') as csvfile:   # this file is downloaded from edX instructor panel
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in spamreader:
         studentGrade[row[3][0:2]+row[4][0:2]] = row[5]
 
 errors = 0
 
-with open('students.csv', 'rb') as csvfile:
+with open('students.csv', 'rb') as csvfile:  # this file is obtained by running "some script i think i forgot to save".py from the django shell
     spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
     for row in spamreader:
             if "@" not in row[2]:
