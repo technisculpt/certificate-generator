@@ -127,7 +127,7 @@ for root,dirs,files in os.walk(dir):
                                 test=0
                             else:
                                 test = float(grade)
-                            if test > 0.50:
+                            if test >= 0.50:
                                 counter+=1
                                 print counter
                                 firstName = string.capwords(row[1])
